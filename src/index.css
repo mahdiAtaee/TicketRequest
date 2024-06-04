@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "IranSans";
+  src: local("IranSans"), url("./assets/Iranian\ Sans.ttf") format("ttf");
+}
+@font-face {
+  font-family: "IranSans-Bold";
+  src: local("IranSansBold"), url("./assets/IranianSansBold.ttf") format("ttf");
+}
+
+body{
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  padding-top: 5rem;
+}

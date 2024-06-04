@@ -1,13 +1,14 @@
 import { useImperativeFilePicker } from "use-file-picker";
+import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { ErrorMessage } from "@hookform/error-message";
+import { useState } from "react";
 import { FaFileAlt } from "react-icons/fa";
 import INFO from "../assets/information.png";
 import AGENCY from "../assets/agency.png";
 import MONEY from "../assets/save-money.png";
 import WALLET from "../assets/wallet.png";
-import { useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
-import { ErrorMessage } from "@hookform/error-message";
-import { useState } from "react";
+import PDF from "../assets/pdf-file.png";
 
 const Ticketing = () => {
   const navigate = useNavigate();
@@ -43,11 +44,11 @@ const Ticketing = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="shadow-lg p-16 rounded-t-lg border border-gray-100">
         <div>
-          <p className="font-iranSansBold w-full text-center font-bold py-4 text-sm md:text-[1rem]">
+          <p className="font-iranSansBold w-full text-center font-bold py-4 text-lg ">
             لطفا برمبنای خدماتی که خریداری کرده‌اید دسته مورد نظرتان را انتخاب
             کنید.
           </p>
-          <p className="font-iranSans w-full text-center px-8 text-xs md:text-sm">
+          <p className="font-iranSansLight w-full text-center px-8 text-sm md:text-sm">
             دسته‌بندی به ما کمک می‌کند که در کمترین زمان ممکن سوال شما را توسط
             متخصص آن حوزه پاسخ دهیم.
           </p>
@@ -203,7 +204,7 @@ const Ticketing = () => {
               <div key={index} className="w-24 h-32 rounded-xl relative top-0">
                 <img
                   alt={file.name}
-                  src={file.content}
+                  src={filesContent[index]?.name.includes('.pdf') ? PDF : file.content}
                   className="w-full h-full object-cover rounded-xl"
                 />
                 <span

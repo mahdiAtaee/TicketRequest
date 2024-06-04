@@ -46,7 +46,9 @@ export default {
       fontFamily: {
         poppins: ['"Poppins"'],
         iranSans: ['"IranSans"'],
-        iranSansBold: ['"IranSans-Bold"'],
+        iranSansBold: ['"IranSans_Bold"'],
+        iranSansLight: ['"IranSans_Light"'],
+        iranSansUltraLight: ['"IranSans_UltraLight"'],
       },
     },
   },

@@ -29,7 +29,7 @@ const TicketList = () => {
           </label>
         </div>
       </div>
-      <div className="border rounded-xl shadow-md mt-8">
+      <div className="lg:border lg:rounded-xl lg:shadow-md mt-8">
         <div className="flex items-center justify-between px-8 pt-4">
           <p className="flex items-center justify-center gap-2 font-bold font-iranSansBold">
             <BiSupport className="text-2xl" />
@@ -50,32 +50,32 @@ const TicketList = () => {
             <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
               <div className="overflow-hidden">
                 <table className="min-w-full text-center text-sm font-light font-iranSans overflow-hidden">
-                  <thead className="border-b border-neutral-200 bg-gray-100 text-sm font-iranSans font-extralight">
+                  <thead className="border-b border-neutral-200 bg-gray-100 text-sm font-iranSansUltraLight">
                     <tr>
-                      <th scope="col" className="px-6 py-2">
+                      <th scope="col" className="px-2 md:px-4 lg:px-6 py-2">
                         شماره درخواست
                       </th>
-                      <th scope="col" className="px-6 py-2">
+                      <th scope="col" className="px-2 md:px-4 lg:px-6 py-2">
                         نوع درخواست
                       </th>
-                      <th scope="col" className="px-6 py-2">
+                      <th scope="col" className="px-2 md:px-4 lg:px-6 py-2">
                         وضعیت
                       </th>
-                      <th scope="col" className="px-6 py-2">
+                      <th scope="col" className="px-2 md:px-4 lg:px-6 py-2">
                         آخرین بروزرسانی
                       </th>
-                      <th scope="col" className="px-6 py-2">
+                      <th scope="col" className="px-2 md:px-4 lg:px-6 py-2">
                         عملیات
                       </th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr className="border-b border-neutral-200">
-                      <td className="whitespace-nowrap px-6 py-2">1234</td>
-                      <td className="whitespace-nowrap px-6 py-2">
+                      <td className="whitespace-nowrap px-2 md:px-4 lg:px-6 py-2">1234</td>
+                      <td className="whitespace-nowrap px-2 md:px-4 lg:px-6 py-2">
                         درخواست برداشت از حساب
                       </td>
-                      <td className="whitespace-nowrap px-6 py-2">
+                      <td className="whitespace-nowrap px-2 md:px-4 lg:px-6 py-2">
                         <span className="text-xs rounded-full py-1 px-4 bg-blue-200 text-blue-500">
                           در حال بررسی
                         </span>
@@ -86,10 +86,10 @@ const TicketList = () => {
                           مشکل
                         </span> */}
                       </td>
-                      <td className="whitespace-nowrap px-6 py-2">
+                      <td className="whitespace-nowrap px-2 md:px-4 lg:px-6 py-2">
                         14 خرداد - ساعت 14:01
                       </td>
-                      <td className="whitespace-nowrap px-6 py-2">
+                      <td className="whitespace-nowrap px-2 md:px-4 lg:px-6 py-2">
                         <Link
                           to={`/ticketing/ticket/${1234}`}
                           className="font-iranSans text-[#0077DB] text-sm flex items-center justify-center gap-2 transition border border-white cursor-pointer hover:bg-[#F2F9FF] hover:border-[#C9E3F8] hover:border duration-500 p-1 rounded-lg"

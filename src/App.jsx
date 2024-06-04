@@ -7,7 +7,7 @@ import TicketList from "./components/TicketList";
 
 function App() {
   return (
-    <div dir="rtl" className="w-[70vw]">
+    <div dir="rtl" className="w-full lg:w-[70vw]">
       <Router>
         <Routes>
           <Route path="/" element={<RequestBox />} />

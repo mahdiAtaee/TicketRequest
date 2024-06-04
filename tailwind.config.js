@@ -48,6 +48,7 @@ export default {
         iranSans: ['"IranSans"'],
         iranSansBold: ['"IranSans_Bold"'],
         iranSansLight: ['"IranSans_Light"'],
+        iranSansMedium: ['"IranSans_Medium"'],
         iranSansUltraLight: ['"IranSans_UltraLight"'],
       },
     },

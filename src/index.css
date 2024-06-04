@@ -56,3 +56,13 @@ body {
   overflow-x: hidden;
   /* padding-top: 5rem; */
 }
+
+@media (max-width: 768px) {
+  #root {
+    width: 100vw;
+    min-height: 100vh;
+    display: block;
+    overflow-x: hidden;
+    /* padding-top: 5rem; */
+  }
+}

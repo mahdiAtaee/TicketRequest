@@ -2,13 +2,33 @@ import { useState } from "react";
 import { VscSearch } from "react-icons/vsc";
 import { BiSupport } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 const TicketList = () => {
+  const isMobile = window.matchMedia("(max-width: 768px)").matches;
   const [search, setSearch] = useState("");
   return (
-    <div className="p-8">
-      <div className="border rounded-xl shadow-md p-8">
-        <span className="w-full flex items-center gap-2 font-iranSansBold font-bold text-xl">
+    <div className="p-2 md:p-8">
+      <div className="flex items-center justify-between md:hidden mb-6">
+        <Link
+          to="/ticketing/new"
+          className="flex items-center gap-4 cursor-pointer border border-white hover:border-blue-200 hover:bg-blue-200 w-fit p-2 rounded-lg transition duration-300"
+        >
+          <FaArrowRightLong size={20} />
+          <span className="font-iranSansMedium text-sm md:text-lg lg:text-xl">
+            پشتیبانی آنلاین
+          </span>
+        </Link>
+        <Link
+          to="/ticketing/new"
+          className="font-iranSans text-[#0077DB] text-sm flex items-center justify-center gap-2 transition border border-white cursor-pointer hover:bg-[#F2F9FF] hover:border-[#C9E3F8] hover:border duration-500 p-1 rounded-lg"
+        >
+          <span className="font-bold text-xl inline-block align-bottom">+</span>{" "}
+         درخواست جدید
+        </Link>
+      </div>
+      <div className="md:border rounded-xl md:shadow-md md:p-8">
+        <span className="w-full hidden md:flex items-center gap-2 font-iranSansBold font-bold text-xl">
           <VscSearch />
           جستجوی درخواست ها
         </span>
@@ -30,7 +50,7 @@ const TicketList = () => {
         </div>
       </div>
       <div className="lg:border lg:rounded-xl lg:shadow-md mt-8">
-        <div className="flex items-center justify-between px-8 pt-4">
+        <div className="hidden md:flex items-center justify-between px-8 pt-4">
           <p className="flex items-center justify-center gap-2 font-bold font-iranSansBold">
             <BiSupport className="text-2xl" />
             درخواست‌های پشتیبانی
@@ -45,65 +65,86 @@ const TicketList = () => {
             ایجاد درخواست جدید
           </Link>
         </div>
-        <div className="flex flex-col overflow-hidden">
-          <div className="overflow-x-auto sm:-mx-6 lg:-mx-8 lg:overflow-x-hidden">
-            <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
-              <div className="overflow-hidden">
-                <table className="min-w-full text-center text-sm font-light font-iranSans overflow-hidden">
-                  <thead className="border-b border-neutral-200 bg-gray-100 text-sm font-iranSansUltraLight">
-                    <tr>
-                      <th scope="col" className="px-2 md:px-4 lg:px-6 py-2">
-                        شماره درخواست
-                      </th>
-                      <th scope="col" className="px-2 md:px-4 lg:px-6 py-2">
-                        نوع درخواست
-                      </th>
-                      <th scope="col" className="px-2 md:px-4 lg:px-6 py-2">
-                        وضعیت
-                      </th>
-                      <th scope="col" className="px-2 md:px-4 lg:px-6 py-2">
-                        آخرین بروزرسانی
-                      </th>
-                      <th scope="col" className="px-2 md:px-4 lg:px-6 py-2">
-                        عملیات
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr className="border-b border-neutral-200">
-                      <td className="whitespace-nowrap px-2 md:px-4 lg:px-6 py-2">1234</td>
-                      <td className="whitespace-nowrap px-2 md:px-4 lg:px-6 py-2">
-                        درخواست برداشت از حساب
-                      </td>
-                      <td className="whitespace-nowrap px-2 md:px-4 lg:px-6 py-2">
-                        <span className="text-xs rounded-full py-1 px-4 bg-blue-200 text-blue-500">
-                          در حال بررسی
-                        </span>
-                        {/* <span className="text-xs rounded-full py-1 px-4 bg-green-200 text-green-500">
+        {!isMobile ? (
+          <div className="flex flex-col overflow-hidden">
+            <div className="overflow-x-auto sm:-mx-6 lg:-mx-8 lg:overflow-x-hidden">
+              <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+                <div className="overflow-hidden">
+                  <table className="min-w-full text-center text-sm font-light font-iranSans overflow-hidden">
+                    <thead className="border-b border-neutral-200 bg-gray-100 text-sm font-iranSansUltraLight">
+                      <tr>
+                        <th scope="col" className="px-2 md:px-4 lg:px-6 py-2">
+                          شماره درخواست
+                        </th>
+                        <th scope="col" className="px-2 md:px-4 lg:px-6 py-2">
+                          نوع درخواست
+                        </th>
+                        <th scope="col" className="px-2 md:px-4 lg:px-6 py-2">
+                          وضعیت
+                        </th>
+                        <th scope="col" className="px-2 md:px-4 lg:px-6 py-2">
+                          آخرین بروزرسانی
+                        </th>
+                        <th scope="col" className="px-2 md:px-4 lg:px-6 py-2">
+                          عملیات
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="border-b border-neutral-200">
+                        <td className="whitespace-nowrap px-2 md:px-4 lg:px-6 py-2">
+                          1234
+                        </td>
+                        <td className="whitespace-nowrap px-2 md:px-4 lg:px-6 py-2">
+                          درخواست برداشت از حساب
+                        </td>
+                        <td className="whitespace-nowrap px-2 md:px-4 lg:px-6 py-2">
+                          <span className="text-xs rounded-full py-1 px-4 bg-blue-200 text-blue-500">
+                            در حال بررسی
+                          </span>
+                          {/* <span className="text-xs rounded-full py-1 px-4 bg-green-200 text-green-500">
                           پاسخ داده شده
                         </span>
                         <span className="text-xs rounded-full py-1 px-4 bg-red-200 text-red-500">
                           مشکل
                         </span> */}
-                      </td>
-                      <td className="whitespace-nowrap px-2 md:px-4 lg:px-6 py-2">
-                        14 خرداد - ساعت 14:01
-                      </td>
-                      <td className="whitespace-nowrap px-2 md:px-4 lg:px-6 py-2">
-                        <Link
-                          to={`/ticketing/ticket/${1234}`}
-                          className="font-iranSans text-[#0077DB] text-sm flex items-center justify-center gap-2 transition border border-white cursor-pointer hover:bg-[#F2F9FF] hover:border-[#C9E3F8] hover:border duration-500 p-1 rounded-lg"
-                        >
-                          مشاهده درخواست
-                        </Link>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                        </td>
+                        <td className="whitespace-nowrap px-2 md:px-4 lg:px-6 py-2">
+                          14 خرداد - ساعت 14:01
+                        </td>
+                        <td className="whitespace-nowrap px-2 md:px-4 lg:px-6 py-2">
+                          <Link
+                            to={`/ticketing/ticket/${1234}`}
+                            className="font-iranSans text-[#0077DB] text-sm flex items-center justify-center gap-2 transition border border-white cursor-pointer hover:bg-[#F2F9FF] hover:border-[#C9E3F8] hover:border duration-500 p-1 rounded-lg"
+                          >
+                            مشاهده درخواست
+                          </Link>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <div className="border rounded-xl shadow-md p-4 pt-6">
+            <div className="flex items-start flex-col gap-2 border-b pb-4 mb-4">
+              <span className="text-xs rounded-full py-1 px-4 bg-blue-200 text-blue-500 font-iranSans">
+                در حال بررسی
+              </span>
+              <p className="font-iranSansLight text-sm"> درخواست برداشت از حساب</p>
+              <p className="font-iranSansLight text-xs"> 14 خرداد - ساعت 14:01</p>
+            </div>
+            <div className="flex items-start flex-col gap-2 pb-4 mb-4">
+              <span className="text-xs rounded-full py-1 px-4 bg-blue-200 text-blue-500 font-iranSans">
+                در حال بررسی
+              </span>
+              <p className="font-iranSansLight text-sm"> درخواست برداشت از حساب</p>
+              <p className="font-iranSansLight text-xs"> 14 خرداد - ساعت 14:01</p>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ import EMPTYBOX from "../assets/empty-message.svg";
 import { Link } from "react-router-dom";
 const RequestBox = () => {
   return (
-    <div className="shadow-lg p-4 rounded-lg border border-gray-100">
+    <div className="shadow-lg p-4 rounded-lg border border-gray-100 h-screen md:h-full ">
       <div className="flex items-center justify-between">
         <p className="flex items-center justify-center gap-2 font-bold font-iranSansBold">
           <BiSupport className="text-2xl" />
@@ -17,9 +17,9 @@ const RequestBox = () => {
           ایجاد درخواست جدید
         </Link>
       </div>
-      <div>
+      <div className="w-full flex items-center justify-center md:block flex-col">
         <div className="w-full flex items-center justify-center">
-          <img src={EMPTYBOX} alt="EMPTYBOX" />
+          <img src={EMPTYBOX} alt="EMPTYBOX" className="w-full md:w-1/3"/>
         </div>
         <p
           className="text-lg my-4 font-bold font-iranSansBold w-2/3 text-center mx-auto "
@@ -33,7 +33,7 @@ const RequestBox = () => {
         </p>
         <Link
           to="/ticketing/new"
-          className="mt-8 bg-organization bg-opacity-55 text-center w-fit mx-auto py-2 px-6 rounded-lg block  font-iranSans border border-organization hover:border-organization_hover hover:bg-organization_hover transition duration-500"
+          className="fixed bottom-5 w-[90%] md:relative mt-8 bg-organization bg-opacity-55 text-center md:w-fit mx-auto py-2 px-6 rounded-lg block  font-iranSans border border-organization hover:border-organization_hover hover:bg-organization_hover transition duration-500"
         >
           ایجاد درخواست جدید
         </Link>

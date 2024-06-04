@@ -44,11 +44,11 @@ const Ticketing = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="shadow-lg p-16 rounded-t-lg border border-gray-100">
         <div>
-          <p className="font-iranSansBold w-full text-center font-bold py-4 text-lg ">
+          <p className="font-iranSansBold w-full text-right md:text-center font-bold py-4 text-sm md:text-lg ">
             لطفا برمبنای خدماتی که خریداری کرده‌اید دسته مورد نظرتان را انتخاب
             کنید.
           </p>
-          <p className="font-iranSansLight w-full text-center px-8 text-sm md:text-sm">
+          <p className="font-iranSansLight w-full text-center px-8 hidden md:block text-sm md:text-sm">
             دسته‌بندی به ما کمک می‌کند که در کمترین زمان ممکن سوال شما را توسط
             متخصص آن حوزه پاسخ دهیم.
           </p>

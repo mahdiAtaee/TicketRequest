@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 import { FaFileAlt } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
+import sanitizeHtml from "sanitize-html";
 import PDF from "../assets/pdf-file.png";
 import { FaArrowRightLong } from "react-icons/fa6";
 
@@ -14,7 +15,11 @@ const TicketRequestMobile = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = () => navigate("/ticketing/new/success");
+  const onSubmit = (data) => {
+    const sanitizedInput = sanitizeHtml(data.userInput);
+    console.log(sanitizedInput);
+    navigate("/ticketing/new/success");
+  };
 
   const {
     openFilePicker,
@@ -91,7 +96,7 @@ const TicketRequestMobile = () => {
                 message: "لطفا کمتر از 500 کاراکتر وارد نمایید",
               },
             })}
-            className="border border-gray-200 w-full rounded-xl p-2 outline-none font-iranSans text-sm"
+            className="border border-gray-200 w-full block h-[150px] rounded-xl p-2 outline-none font-iranSans text-sm"
           />
           <ErrorMessage
             errors={errors}

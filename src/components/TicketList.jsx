@@ -24,7 +24,7 @@ const TicketList = () => {
           className="font-iranSans text-[#0077DB] text-sm flex items-center justify-center gap-2 transition border border-white cursor-pointer hover:bg-[#F2F9FF] hover:border-[#C9E3F8] hover:border duration-500 p-1 rounded-lg"
         >
           <span className="font-bold text-xl inline-block align-bottom">+</span>{" "}
-         درخواست جدید
+          درخواست جدید
         </Link>
       </div>
       <div className="md:border rounded-xl md:shadow-md md:p-8">
@@ -128,21 +128,33 @@ const TicketList = () => {
             </div>
           </div>
         ) : (
-          <div className="border rounded-xl shadow-md p-4 pt-6">
-            <div className="flex items-start flex-col gap-2 border-b pb-4 mb-4">
+          <div className="border block rounded-xl shadow-md p-4 pt-6">
+            <Link to="/ticketing/ticket/1234" className="flex items-start flex-col gap-2 border-b pb-4 mb-4">
               <span className="text-xs rounded-full py-1 px-4 bg-blue-200 text-blue-500 font-iranSans">
                 در حال بررسی
               </span>
-              <p className="font-iranSansLight text-sm"> درخواست برداشت از حساب</p>
-              <p className="font-iranSansLight text-xs"> 14 خرداد - ساعت 14:01</p>
-            </div>
-            <div className="flex items-start flex-col gap-2 pb-4 mb-4">
+              <p className="font-iranSansLight text-sm">
+                {" "}
+                درخواست برداشت از حساب
+              </p>
+              <p className="font-iranSansLight text-xs">
+                {" "}
+                14 خرداد - ساعت 14:01
+              </p>
+            </Link>
+            <Link to="/ticketing/ticket/4567" className="flex items-start flex-col gap-2 pb-4 mb-4">
               <span className="text-xs rounded-full py-1 px-4 bg-blue-200 text-blue-500 font-iranSans">
                 در حال بررسی
               </span>
-              <p className="font-iranSansLight text-sm"> درخواست برداشت از حساب</p>
-              <p className="font-iranSansLight text-xs"> 14 خرداد - ساعت 14:01</p>
-            </div>
+              <p className="font-iranSansLight text-sm">
+                {" "}
+                درخواست برداشت از حساب
+              </p>
+              <p className="font-iranSansLight text-xs">
+                {" "}
+                14 خرداد - ساعت 14:01
+              </p>
+            </Link>
           </div>
         )}
       </div>

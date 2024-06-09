@@ -7,6 +7,10 @@ import PDF from "../assets/pdf-file.png";
 import { Link } from "react-router-dom";
 
 const TicketStatus = () => {
+  const [messages, setMessages] = useState([
+    { text: "سلام وقتتون بخیر، سوالی داشتم", sender: "user" },
+    { text: "سلام وقتتون بخیر، در خدمتتون هستم", sender: "admin" },
+  ]);
   const [message, setMessage] = useState("");
   const {
     openFilePicker,
@@ -29,15 +33,19 @@ const TicketStatus = () => {
   };
 
   const handleSendMessage = () => {
+    setMessages([...messages, { text: message, sender: "admin" }]);
     console.log(message);
     setMessage("");
   };
 
-  console.log(filesContent[0]?.name.includes('.pdf'));
+  console.log(filesContent[0]?.name.includes(".pdf"));
 
   return (
     <div className="shadow-lg p-4 rounded-lg border border-gray-100">
-      <Link to="/ticket/list" className="flex items-center gap-4 cursor-pointer border border-white hover:border-blue-200 hover:bg-blue-200 w-fit p-2 rounded-lg transition duration-300">
+      <Link
+        to="/ticket/list"
+        className="flex items-center gap-4 cursor-pointer border border-white hover:border-blue-200 hover:bg-blue-200 w-fit p-2 rounded-lg transition duration-300"
+      >
         <FaArrowRightLong size={24} />
         <span className="font-bold font-iranSansBold text-sm md:text-lg lg:text-xl">
           بازگشت به لیست درخواست‌ها
@@ -51,9 +59,9 @@ const TicketStatus = () => {
           در حال بررسی
         </span>
       </div>
-      <div className="mt-6 py-6">
+      <div className="py-6">
         <p className="font-iranSans text-xs md:text-sm ">
-          دوشنبه، 14 خرداد 140314:01
+          دوشنبه، 14 خرداد 1403 14:01
         </p>
         <div className="border-r-[3px] border-organization_hover mt-4 px-4 text-sm font-iranSans">
           <ul>
@@ -72,6 +80,25 @@ const TicketStatus = () => {
           </ul>
         </div>
       </div>
+      {messages && (
+        <div className="border-t-2">
+          <p className="font-iranSans text-xs md:text-sm py-4">
+            یکشنبه، 19 خرداد 1403 22:01
+          </p>
+          {messages.map((message, index) => (
+            <div
+              key={index}
+              className={
+                message?.sender === "user"
+                  ? "px-2 text-sm border-r-2 border-organization leading-10 rtl  font-iranSansLight mt-2"
+                  : "px-2 text-sm border-l-2 border-blue-500 leading-10 ltr font-iranSansLight mt-2"
+              }
+            >
+              {message.text}
+            </div>
+          ))}
+        </div>
+      )}
       <div className="mt-6">
         <div className="relative">
           <textarea
@@ -98,7 +125,11 @@ const TicketStatus = () => {
               <div key={index} className="w-24 h-32 rounded-xl relative top-0">
                 <img
                   alt={file.name}
-                  src={filesContent[index]?.name.includes('.pdf') ? PDF : file.content}
+                  src={
+                    filesContent[index]?.name.includes(".pdf")
+                      ? PDF
+                      : file.content
+                  }
                   className="w-full h-full object-cover rounded-xl"
                 />
                 <span

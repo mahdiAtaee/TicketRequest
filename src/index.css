@@ -66,3 +66,12 @@ body {
     /* padding-top: 5rem; */
   }
 }
+
+@layer utilities {
+  .ltr {
+    direction: ltr;
+  }
+  .rtl {
+    direction: rtl;
+  }
+}

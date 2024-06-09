@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 import { useState } from "react";
+import sanitizeHtml from "sanitize-html";
 import { FaFileAlt } from "react-icons/fa";
 import INFO from "../assets/information.png";
 import AGENCY from "../assets/agency.png";
@@ -19,7 +20,11 @@ const Ticketing = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = () => navigate("/ticketing/new/success");
+  const onSubmit = (data) => {
+    const sanitizedInput = sanitizeHtml(data.userInput);
+    console.log(sanitizedInput);
+    navigate("/ticketing/new/success");
+  };
 
   const {
     openFilePicker,
@@ -169,7 +174,7 @@ const Ticketing = () => {
                 message: "لطفا کمتر از 500 کاراکتر وارد نمایید",
               },
             })}
-            className="border border-gray-200 w-full rounded-xl p-2 outline-none font-iranSans text-sm"
+            className="border border-gray-200 block w-full block min-h-[120px] rounded-xl p-2 outline-none font-iranSans text-sm"
           />
           <ErrorMessage
             errors={errors}
@@ -204,7 +209,11 @@ const Ticketing = () => {
               <div key={index} className="w-24 h-32 rounded-xl relative top-0">
                 <img
                   alt={file.name}
-                  src={filesContent[index]?.name.includes('.pdf') ? PDF : file.content}
+                  src={
+                    filesContent[index]?.name.includes(".pdf")
+                      ? PDF
+                      : file.content
+                  }
                   className="w-full h-full object-cover rounded-xl"
                 />
                 <span

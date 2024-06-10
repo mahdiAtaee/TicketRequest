@@ -8,8 +8,14 @@ import { Link } from "react-router-dom";
 
 const TicketStatus = () => {
   const [messages, setMessages] = useState([
-    { text: "سلام وقتتون بخیر، سوالی داشتم", sender: "user" },
-    { text: "سلام وقتتون بخیر، در خدمتتون هستم", sender: "admin" },
+    {
+      text: "سلام وقتتون بخیر، سوالی داشتم",
+      sender: "user",
+    },
+    {
+      text: "کاربر گرامی با سلام مشکل شما حل شد",
+      sender: "admin",
+    },
   ]);
   const [message, setMessage] = useState("");
   const {
@@ -82,19 +88,25 @@ const TicketStatus = () => {
       </div>
       {messages && (
         <div className="border-t-2">
-          <p className="font-iranSans text-xs md:text-sm py-4">
-            یکشنبه، 19 خرداد 1403 22:01
-          </p>
           {messages.map((message, index) => (
-            <div
-              key={index}
-              className={
-                message?.sender === "user"
-                  ? "px-2 text-sm border-r-2 border-organization leading-10 rtl  font-iranSansLight mt-2"
-                  : "px-2 text-sm border-l-2 border-blue-500 leading-10 ltr font-iranSansLight mt-2"
-              }
-            >
-              {message.text}
+            <div key={index}>
+              <p className="font-iranSans text-xs md:text-sm pt-4">
+                یکشنبه، 19 خرداد 1403 22:01
+              </p>
+              <p
+                className={`${
+                  message?.sender === "user"
+                    ? "border-blue-500 "
+                    : "border-organization"
+                } ${
+                  messages.length - 1 === index
+                    ? ""
+                    : "after:block after:absolute after:left-0 after:w-full after:h-[1px] after:top-full after:bg-gray-200 after:mt-4"
+                } px-2 text-sm border-r-2  leading-10  font-iranSansLight mt-2 relative py-2 bg-gray-100 my-4
+                `}
+              >
+                {message.text}
+              </p>
             </div>
           ))}
         </div>

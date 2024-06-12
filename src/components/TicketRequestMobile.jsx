@@ -1,10 +1,10 @@
-import { useImperativeFilePicker } from "use-file-picker";
+// import { useImperativeFilePicker } from "use-file-picker";
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
-import { FaFileAlt } from "react-icons/fa";
+// import { FaFileAlt } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import sanitizeHtml from "sanitize-html";
-import PDF from "../assets/pdf-file.png";
+// import PDF from "../assets/pdf-file.png";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 const TicketRequestMobile = () => {
@@ -21,20 +21,20 @@ const TicketRequestMobile = () => {
     navigate("/ticketing/new/success");
   };
 
-  const {
-    openFilePicker,
-    filesContent,
-    removeFileByReference,
-    removeFileByIndex,
-  } = useImperativeFilePicker({
-    multiple: true,
-    readAs: "DataURL",
-  });
+  // const {
+  //   openFilePicker,
+  //   filesContent,
+  //   removeFileByReference,
+  //   removeFileByIndex,
+  // } = useImperativeFilePicker({
+  //   multiple: true,
+  //   readAs: "DataURL",
+  // });
 
-  const handleRemoveFile = (file, i) => {
-    removeFileByReference(file);
-    removeFileByIndex(i);
-  };
+  // const handleRemoveFile = (file, i) => {
+  //   removeFileByReference(file);
+  //   removeFileByIndex(i);
+  // };
   return (
     <div>
       <div className="py-4 border-b-2 ">
@@ -108,7 +108,7 @@ const TicketRequestMobile = () => {
             )}
           />
         </div>
-        <div className="flex items-center gap-2 relative px-4">
+        {/* <div className="flex items-center gap-2 relative px-4">
           <div>
             <a
               onClick={() => openFilePicker()}
@@ -152,7 +152,7 @@ const TicketRequestMobile = () => {
               </span>
             </div>
           ))}
-        </div>
+        </div> */}
         <div className="fixed bottom-0 flex items-center gap-4 justify-end w-full p-4 bg-gray-100 rounded-b-lg">
           <Link
             to="/"

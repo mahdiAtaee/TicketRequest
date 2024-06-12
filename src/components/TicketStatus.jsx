@@ -1,9 +1,9 @@
-import { useImperativeFilePicker } from "use-file-picker";
+// import { useImperativeFilePicker } from "use-file-picker";
 import { FaArrowRightLong } from "react-icons/fa6";
-import { FiLink } from "react-icons/fi";
+// import { FiLink } from "react-icons/fi";
 import { HiOutlinePaperAirplane } from "react-icons/hi";
 import { useState } from "react";
-import PDF from "../assets/pdf-file.png";
+// import PDF from "../assets/pdf-file.png";
 import { Link } from "react-router-dom";
 
 const TicketStatus = () => {
@@ -18,33 +18,31 @@ const TicketStatus = () => {
     },
   ]);
   const [message, setMessage] = useState("");
-  const {
-    openFilePicker,
-    filesContent,
-    errors,
-    removeFileByReference,
-    removeFileByIndex,
-  } = useImperativeFilePicker({
-    multiple: true,
-    readAs: "DataURL",
-  });
+  // const {
+  //   openFilePicker,
+  //   filesContent,
+  //   errors,
+  //   removeFileByReference,
+  //   removeFileByIndex,
+  // } = useImperativeFilePicker({
+  //   multiple: true,
+  //   readAs: "DataURL",
+  // });
 
-  if (errors) {
-    console.log(errors);
-  }
+  // if (errors) {
+  //   console.log(errors);
+  // }
 
-  const handleRemoveFile = (file, i) => {
-    removeFileByReference(file);
-    removeFileByIndex(i);
-  };
+  // const handleRemoveFile = (file, i) => {
+  //   removeFileByReference(file);
+  //   removeFileByIndex(i);
+  // };
 
   const handleSendMessage = () => {
     setMessages([...messages, { text: message, sender: "admin" }]);
     console.log(message);
     setMessage("");
   };
-
-  console.log(filesContent[0]?.name.includes(".pdf"));
 
   return (
     <div className="shadow-lg p-4 rounded-lg border border-gray-100">
@@ -127,7 +125,7 @@ const TicketStatus = () => {
             متن پیام
           </label>
         </div>
-        <div className="w-full border-x-2 border-gray-300">
+        {/* <div className="w-full border-x-2 border-gray-300">
           <div
             className={`${
               filesContent.length > 0 ? "border-t-2" : ""
@@ -153,14 +151,14 @@ const TicketStatus = () => {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
         <div className="border border-gray-300 rounded-b-xl p-2 bg-gray-100 h-16 flex items-center gap-4 justify-end">
-          <button
+          {/* <button
             onClick={() => openFilePicker()}
             className="border border-gray-400  font-iranSans p-2 h-10 w-10 rounded-full hover:bg-gray-300 transition duration-200 flex items-center justify-center"
           >
             <FiLink />
-          </button>
+          </button> */}
           <button
             onClick={handleSendMessage}
             className="border border-blue-400 text-white bg-blue-400 font-iranSans py-2 px-4 w-fit flex items-center rounded-full text-sm gap-2 h-10 hover:bg-blue-500 transition duration-200"

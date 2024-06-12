@@ -1,15 +1,15 @@
-import { useImperativeFilePicker } from "use-file-picker";
+// import { useImperativeFilePicker } from "use-file-picker";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 import { useState } from "react";
 import sanitizeHtml from "sanitize-html";
-import { FaFileAlt } from "react-icons/fa";
+// import { FaFileAlt } from "react-icons/fa";
 import INFO from "../assets/information.png";
 import AGENCY from "../assets/agency.png";
 import MONEY from "../assets/save-money.png";
 import WALLET from "../assets/wallet.png";
-import PDF from "../assets/pdf-file.png";
+// import PDF from "../assets/pdf-file.png";
 
 const Ticketing = () => {
   const navigate = useNavigate();
@@ -26,20 +26,20 @@ const Ticketing = () => {
     navigate("/ticketing/new/success");
   };
 
-  const {
-    openFilePicker,
-    filesContent,
-    removeFileByReference,
-    removeFileByIndex,
-  } = useImperativeFilePicker({
-    multiple: true,
-    readAs: "DataURL",
-  });
+  // const {
+  //   openFilePicker,
+  //   filesContent,
+  //   removeFileByReference,
+  //   removeFileByIndex,
+  // } = useImperativeFilePicker({
+  //   multiple: true,
+  //   readAs: "DataURL",
+  // });
 
-  const handleRemoveFile = (file, i) => {
-    removeFileByReference(file);
-    removeFileByIndex(i);
-  };
+  // const handleRemoveFile = (file, i) => {
+  //   removeFileByReference(file);
+  //   removeFileByIndex(i);
+  // };
 
   const handleSetDepartment = (e) => {
     setDepartment(e.target.id);
@@ -174,7 +174,7 @@ const Ticketing = () => {
                 message: "لطفا کمتر از 500 کاراکتر وارد نمایید",
               },
             })}
-            className="border border-gray-200 block w-full block min-h-[120px] rounded-xl p-2 outline-none font-iranSans text-sm"
+            className="border border-gray-200 block w-full min-h-[120px] rounded-xl p-2 outline-none font-iranSans text-sm"
           />
           <ErrorMessage
             errors={errors}
@@ -186,7 +186,7 @@ const Ticketing = () => {
             )}
           />
         </div>
-        <div className="flex items-center gap-2 relative mb-8">
+        {/* <div className="flex items-center gap-2 relative mb-8">
           <div>
             <a
               onClick={() => openFilePicker()}
@@ -229,7 +229,7 @@ const Ticketing = () => {
               لطفا یک فایل انتخاب نمایید
             </p>
           )}
-        </div>
+        </div> */}
       </div>
       <div className="flex items-center gap-4 justify-end w-full p-4 mb-8 bg-gray-100 rounded-b-lg">
         <button className="border border-organization  font-iranSans rounded-xl p-2 w-[120px] md:w-[150px] text-xs md:text-sm h-10 hover:bg-organization transition duration-300">
